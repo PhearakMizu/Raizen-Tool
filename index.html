@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raizen Tool</title>
+<link rel="icon" href="earning.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Toggle buttons -->
+    <div class="toggle-bar">
+        <button id="showCalculator" class="active">Calculator</button>
+        <button id="showSimulator">Simulator</button>
+    </div>
+
+    <!-- Calculator Section -->
+    <div class="section active" id="calculatorSection">
+        <div class="calculator">
+            <h2>Raizen Size Calculator</h2><br/><br/>
+            
+            <div class="form-row">
+                <label for="entry" class="title1">Entry Price ($)</label>
+                <input type="number" id="entry" placeholder="0">
+            </div>
+        
+            <div class="form-row">
+                <label for="sl" class="title2">Stop Loss ($)</label>
+                <input type="number" id="sl" placeholder="0">
+            </div>
+        
+            <div class="form-row">
+                <label for="tp" class="title3">Take Profit ($)</label>
+                <input type="number" id="tp" placeholder="0">
+            </div>
+        
+            <div class="form-row">
+                <label for="risk" class="title4">Risk Amount ($)</label>
+                <input type="number" id="risk" placeholder="0">
+            </div>
+            <button id="calculateBtn">Calculate</button>
+        </div>
+        <div class="calculator" id="calculatorResult"  style="display: none; margin-top: 20px">
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <!-- Simulator Section -->
+    <div class="section" id="simulatorSection">
+        <div class="calculator">
+            <h2>Strategy Simulator</h2><br/><br/>
+            <div class="form-row">
+                <label for="capital" class="title1">Start Capital ($)</label>
+                <input type="number" id="capital" value="500" min="1" />
+            </div>
+            <div class="form-row">
+                <label for="winrate" class="title2">Win Rate (%)</label>
+                <input type="number" id="winrate" step="0.01" value="50" min="0" max="1" />
+            </div>
+            <div class="form-row">
+                <label for="commissionPercent" class="title3">Trade Fee (%)</label>
+                <input type="number" id="commissionPercent" step="0.01" value="1" min="0" max="10" />
+            </div>
+            <div class="form-row">
+                <label for="riskreward" class="title4">Risk Reward</label>
+                <input type="number" id="riskreward" step="0.01" value="3" min="0" max="10" />
+            </div>
+             <button onclick="runSimulation()">Run Simulation</button>
+        </div>
+        <div class="container" id="simulatorResult" style="display: none; margin-top: 20px";>
+            <div id="results"></div>
+            <div class = "calculator2">
+                <canvas id="equityChart"></canvas>
+            </div>   
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
