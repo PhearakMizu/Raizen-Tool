@@ -23,15 +23,26 @@ document.getElementById('showSimulator').addEventListener('click', () => {
 });
 
 function calculatePosition() {
-    document.getElementById("calculatorResult").style.display = "block";
     const entry = parseFloat(document.getElementById('entry').value);
     const sl = parseFloat(document.getElementById('sl').value);
     const tp = parseFloat(document.getElementById('tp').value);
     const risk = parseFloat(document.getElementById('risk').value);
 
-    if(isNaN(entry) || isNaN(sl) || isNaN(tp) || isNaN(risk) || entry === sl) {
-        document.getElementById('result').innerHTML = '<div>Please enter valid numbers.</div>';
+    if(isNaN(entry) || isNaN(sl) || isNaN(tp) || isNaN(risk) || entry === sl || entry === tp || sl === tp) {
+        document.getElementById("calculatorResult").style.display = "none";
+        document.getElementById("calculatorError").style.display = "block";
+        document.getElementById('error').innerHTML = '<div>Please enter valid PRICE !</div>';
         return;
+    }
+    else if ((entry > sl && entry > tp) || (entry < sl && entry < tp)) {
+        document.getElementById("calculatorResult").style.display = "none";
+        document.getElementById("calculatorError").style.display = "block";
+        document.getElementById('error').innerHTML = '<div>Take Profit and Stop Loss must be on opposite sides of Entry Price !</div>';
+        return;
+    }
+    else{
+      document.getElementById("calculatorResult").style.display = "block";
+      document.getElementById("calculatorError").style.display = "none";
     }
 
     const positionSize = Math.abs(risk / (entry - sl));

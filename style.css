@@ -112,12 +112,12 @@ label.title4 { color: #993366; }    /* pruple */
     line-height: 1.6;
 }
 .result div.label { color: #555; }
-.result div.label.fee { color: #AE4939; font-size: 10px; font-style: italic;}
+.result div.label.fee { color: #461a13; font-size: 10px; font-style: italic;}
 .result div.value { text-align: right; }
 .value.position { color: #006622;}
 .value.pnl { color: #b32d00; }
 .value.rr { color: #993366; }
-.value.fee { color: #2E675F; font-size: 12px; font-style: italic;}
+.value.fee { color: #183834; font-size: 12px; font-style: italic;}
 
 
 /* Simulator */
